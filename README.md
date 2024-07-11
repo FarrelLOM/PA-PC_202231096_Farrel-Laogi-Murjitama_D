@@ -11,13 +11,17 @@ Median filter adalah salah satu filtering non-linear yang mengurutkan nilai inte
 B. Landasan Teori
 
 1. Perbaikan Kualitas Citra
+
 Perbaikan kualitas citra merupakan suatu proses yang dilakukan untuk mendapatkan kondisi tertentu pada citra. Proses tersebut dilakukan dengan menggunakan berbagai macam metode tergantung pada kondisi yang diharapkan pada citra, seperti mempertajam bagian tertentu pada citra, menghilangkan noise atau gangguan, manipulasi kontras dan skala keabuan, dan sebagainya. Secara umum metode-metode yang digunakan dapat digolongkan kedalam dua kelompok yaitu metode domain frekuensi dan metode domain spasial.
 
 Pada metode domain frekuensi, teknik pemrosesannya berdasarkan pada transformasi Fourier terhadap nilai pixel. Sedangkan pada metode domain spasial prosesnya dioperasikan langsung terhadap pixel, dimana untuk memproses sebuah pixel harus mengikut sertakan pixel-pixel tetangganya. Fungsi matematis dari metode domain spasial adalah sebagai berikut :
+
 g (x,y) = T [f (x,y)]
+
 f (x,y) adalah fungsi citra masukan, g (x,y) adalah citra hasil atau keluaran, sedangkan T adalah operator atas f, yang didefinisikan terhadap kumpulan tetangga-tetangga (x,y). Contoh dari metode ini adalah operasi filtering citra yaitu penghalusan citra dengan cara menghilangkan noise pada citra.
 
 2. Metode Mean Filter
+
 Metode mean filter adalah satu teknik filtering yang bekerja dengan cara menggantikan intensitas suatu pixel dengan rata-rata nilai pixel dari pixel-pixel tetangganya. Jika suatu citra f(x,y) yang berukuran M x N dilakukan proses filtering dengan penapis h(x,y) maka akan menghasilkan citra g(x,y), dimana penapis h(x,y) merupakan matrik yang berisi nilai 1/ukuran penapis. Secara matematis proses tersebut dapat dinyatakan sebagai berikut:
 
 g(x,y) = f(x,y) * h(x,y)
@@ -40,39 +44,57 @@ dimana g(x,y) merupakan citra yang dihasilkan dari citra f(x,y) dengan w sebagai
 Penilaian kualitas citra dilakukan dengan cara penilaian secara objektif dengan menggunakan besaran MSE dan PSNR kedua besaran tersebut membandingkan pixel-pixel pada posisi yang sama dari dua citra yang berlainan.
 
 C. Tahapan penyelesaian proyek
+
 Untuk menyelesaikan proyek pengolahan citra menggunakan filter median dan mean, dapat mengikuti tahapan-tahapan berikut secara rinci:
 
 1. Persiapan Lingkungan Pengembangan
+
 Instalasi Perpustakaan yang Diperlukan, dengan menginstal semua perpustakaan yang diperlukan untuk pengolahan citra, yaitu OpenCV, NumPy, dan Matplotlib. Bila belum menginstalnya, dapat menginstalnya dengan menajalankan kode pip:
-pip install opencv-python numpy matplotlib
+
+- pip install opencv-python numpy matplotlib
+
 setelah diinstal dapat memanggil gambar dengan memasukkan kode dari section pada file program IPYNB terlampir:
+
 - Import library
 
 2. Memuat dan Menampilkan Gambar Asli
+
 Langkah pertama adalah memuat gambar yang akan diolah dan menampilkannya. Untuk penerapan dapat menggunakan program dengan judul (section):
+
 - Panggil (import) gambar
 
 3. Penerapan Filter Median Menggunakan OpenCV
+
 Filter median digunakan untuk mengurangi derau salt-and-pepper. OpenCV menyediakan fungsi 'cv2.medianBlur' untuk melakukan filter median. Untuk variabel median dapat menggunakan section:
+
 - Filter median
 
 4. Penerapan Filter Mean Secara Manual
+
 Filter mean diterapkan dengan menghitung rata-rata nilai piksel di sekitar piksel target. Berikut adalah langkah-langkah untuk menerapkan filter mean secara manual:
+
 a.Tentukan ukuran jendela filter (kernel).
 b.Buat padding pada gambar untuk memastikan bahwa jendela filter dapat melampaui batas gambar asli.
 c.Hitung rata-rata nilai piksel di dalam jendela filter.
 d.Gantikan nilai piksel asli dengan nilai rata-rata yang telah dihitung.
+
 Untuk program filter manual dapat meninjau section:
+
 - Filter rata-rata (mean) manual
 - Filter rata-rata dalam skala keabuan (grayscale)
 
 5. Menampilkan Hasil Filter Median dan Mean
+
 Setelah menerapkan filter median dan mean, langkah selanjutnya adalah menampilkan gambar asli, gambar setelah filter median, dan gambar setelah filter mean. Untuk penerapan dapat meninjau section:
+
 - Menampilkan citra tergabung (sesuai soal)
 
 6. Kesimpulan dan Analisis
+
 Pada tahap akhir, lakukan analisis hasil pengolahan citra. Bandingkan gambar asli dengan gambar hasil filter median dan mean untuk mengevaluasi efektivitas masing-masing filter dalam mengurangi derau dan mempertahankan detail gambar.
+
 Poin Analisis:
+
 - Efektivitas Penghilangan Derau: Bandingkan seberapa baik filter median dan mean dalam mengurangi derau pada gambar.
 - Ketajaman Tepi: Perhatikan apakah filter mean mengaburkan tepi gambar lebih dibandingkan dengan filter median.
 - Aplikasi Potensial: Tentukan aplikasi potensial di mana setiap filter dapat digunakan berdasarkan hasil pengolahan citra.
