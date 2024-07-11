@@ -73,10 +73,13 @@ Filter median digunakan untuk mengurangi derau salt-and-pepper. OpenCV menyediak
 
 Filter mean diterapkan dengan menghitung rata-rata nilai piksel di sekitar piksel target. Berikut adalah langkah-langkah untuk menerapkan filter mean secara manual:
 
-a.Tentukan ukuran jendela filter (kernel).
-b.Buat padding pada gambar untuk memastikan bahwa jendela filter dapat melampaui batas gambar asli.
-c.Hitung rata-rata nilai piksel di dalam jendela filter.
-d.Gantikan nilai piksel asli dengan nilai rata-rata yang telah dihitung.
+a. Tentukan ukuran jendela filter (kernel).
+
+b. Buat padding pada gambar untuk memastikan bahwa jendela filter dapat melampaui batas gambar asli.
+
+c. Hitung rata-rata nilai piksel di dalam jendela filter.
+
+d. Gantikan nilai piksel asli dengan nilai rata-rata yang telah dihitung.
 
 Untuk program filter manual dapat meninjau section:
 
